@@ -42,7 +42,6 @@ public class GenerateDocumentProblem {
             map.put(list.charAt(i), map.getOrDefault(list.charAt(i), 0) + 1);
         }
 
-
         // iterate doc string and update char freq from map
         for (int i = 0; i < document.length(); i++) {
             if (!map.containsKey(document.charAt(i)) || map.get(document.charAt(i)) == 0) return false;
