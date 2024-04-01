@@ -10,15 +10,14 @@ public class TwoSum_Solution1 {
 
 
     }
+    // Brute force solution of two sum problem
 
     private static int[] twoSum(int[] nums, int target){
 
         for (int i = 0; i < nums.length; i++) {   // time complexity O(n*n)
             for (int j = 0; j < nums.length; j++) {
                 if (i != j){
-                    if (nums[i] + nums[j] == target){
-                        return new int[]{i,j};
-                    }
+                    if (nums[i] + nums[j] == target) return new int[]{i,j};
                 }
             }
         }
