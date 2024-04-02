@@ -16,6 +16,8 @@ public class SetReview {
 
         System.out.println(set);
 
+        System.out.println("-------------------------------------------");
+
         System.out.println(firstRepeatingChar("Java Developer"));
 
 
@@ -23,10 +25,10 @@ public class SetReview {
 
     public static Character firstRepeatingChar(String str){
         Set<Character> set = new HashSet<>();
+        // space complexity O(n)
 
-        for (char ch :str.toCharArray()){
-            if (!set.add(ch)) return ch;
-        }
+        for (char ch :str.toCharArray()) if (!set.add(ch)) return ch;
+        // time complexity O(n)
 
         return null;
     }
