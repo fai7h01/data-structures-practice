@@ -13,13 +13,25 @@ public class MySinglyLinkedList {
         Node node = new Node(value);
         if (isEmpty()) { // if the link is empty
             head = tail = node;
-            size++;
         } else { // if there are elements in list
             tail.next = node;
             tail = node;
-            size++;
         }
+        size++;
     }
+
+    void addFirst(int id){
+        Node node = new Node(id);
+        if (isEmpty()){
+            head = tail = node;
+        }else{
+            node.next = head;
+            head = node;;
+        }
+        size++;
+
+    }
+
 
     void deleteById(int id) {
         // check if empty
@@ -55,7 +67,6 @@ public class MySinglyLinkedList {
 
 
     }
-
 
     int indexOf(int id){
         if (isEmpty()) return -1;
