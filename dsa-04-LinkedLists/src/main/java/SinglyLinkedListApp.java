@@ -11,10 +11,8 @@ public class SinglyLinkedListApp {
         }
 
         linkedList.printNodes();
-
         linkedList.deleteById(7);
-
         linkedList.printNodes();
-
+        System.out.println(linkedList.indexOf(8));
     }
 }
