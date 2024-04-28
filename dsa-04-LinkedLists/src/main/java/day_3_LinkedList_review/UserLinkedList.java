@@ -1,8 +1,8 @@
 package day_3_LinkedList_review;
 
 public class UserLinkedList {
-    User head;
-    User tail;
+    UserNode head;
+    UserNode tail;
     int size; // this will hold number of elements in list
 
     public UserLinkedList() {
@@ -15,7 +15,7 @@ public class UserLinkedList {
         return head == null;
     }
 
-    void insertLast(User node){
+    void insertLast(UserNode node){
         //if list is empty
         if (isEmpty()){
             head = tail = node;
@@ -24,6 +24,15 @@ public class UserLinkedList {
             tail = node;
         }
         size++;
+    }
+
+    void printNames(){
+        if (isEmpty()) System.out.println("list is empty!");
+        UserNode current = head;
+        while(current != null){
+            System.out.println(current.name);
+            current = current.next;
+        }
     }
 
 }
