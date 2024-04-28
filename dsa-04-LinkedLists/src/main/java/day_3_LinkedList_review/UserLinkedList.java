@@ -30,7 +30,7 @@ public class UserLinkedList {
         if (isEmpty()) System.out.println("list is empty!");
         UserNode current = head;
         while(current != null){
-            System.out.println(current.name);
+            System.out.print(current.name + " => ");
             current = current.next;
         }
     }
