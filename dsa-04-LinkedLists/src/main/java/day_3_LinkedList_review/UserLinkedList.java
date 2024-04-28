@@ -35,4 +35,28 @@ public class UserLinkedList {
         }
     }
 
+    void get(int index){
+        if (index >= size){
+            System.out.println("index out of bounds");
+            return;
+        }else{
+            UserNode current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            System.out.println("index " + index + " is = " + current.name);
+        }
+    }
+
+    UserNode get2(int index){
+        if (index >= size){
+            throw new IndexOutOfBoundsException();
+        }else{
+            UserNode current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            return current;
+        }
+    }
 }
