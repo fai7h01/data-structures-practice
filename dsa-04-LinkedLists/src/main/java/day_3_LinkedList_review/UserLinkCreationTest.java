@@ -10,5 +10,9 @@ public class UserLinkCreationTest {
         list.insertLast(new UserNode("Aaron", "H"));
         list.printNames();
 
+        System.out.println();
+
+        list.get(2);
+
     }
 }
