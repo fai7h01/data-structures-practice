@@ -15,6 +15,16 @@ public class UserLinkedList {
         return head == null;
     }
 
+    void addLast(UserNode node){
+        if (isEmpty()){
+            head = tail = node;
+        }else{
+            node.next = head;
+            head = node;
+        }
+        size++;
+    }
+
     void insertLast(UserNode node){
         //if list is empty
         if (isEmpty()){

@@ -16,6 +16,5 @@ public class UserLinkCreationTest {
 
         list.deleteByName("Aaron");
         list.printNames();
-
     }
 }
