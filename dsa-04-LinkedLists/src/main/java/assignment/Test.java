@@ -24,5 +24,7 @@ public class Test {
         list.removeKthElementFromLast(3);
 
         list.print();
+
+
     }
 }
