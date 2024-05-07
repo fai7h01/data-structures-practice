@@ -15,6 +15,9 @@ public class Test {
         list.addFirst(30);
         list.print();
 
+        int val = 1;
+
+        System.out.println("index of " + val + ": " + list.indexOf(val));
 
     }
 }

@@ -48,5 +48,21 @@ public class SinglyLinkedList {
         size++;
     }
 
+    int indexOf(int value){
+        if (isEmpty()) return -1;
+
+        Node current = head;
+        int index = 0;
+        while(current != null){
+            if (current.value == value){
+                return index;
+            }else{
+                index++;
+            }
+            current = current.next;
+        }
+        throw new IllegalArgumentException("Element not found " + value + ".");
+    }
+
 
 }
