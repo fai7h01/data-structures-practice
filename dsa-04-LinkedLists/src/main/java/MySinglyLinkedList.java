@@ -26,7 +26,7 @@ public class MySinglyLinkedList {
             head = tail = node;
         }else{
             node.next = head;
-            head = node;;
+            head = node;
         }
         size++;
 
