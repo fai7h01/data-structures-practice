@@ -64,5 +64,52 @@ public class SinglyLinkedList {
         throw new IllegalArgumentException("Element not found " + value + ".");
     }
 
+    //get kth item from last
+    int getKthElementFromLast(int k){
+        //create two pointers
+        Node p1 = head;
+        Node p2 = head;
+        // move p2 k - 1 times
+        for (int i = 0; i < k - 1; i++) {
+            p2 = p2.next;
+        }
+        //move both pointers until p2 hits the last element
+        while(p2.next != null){
+           p1 = p1.next;
+           p2 = p2.next;
+        }
+        //p1 is on the kth element from the last
+        return p1.value;
+    }
+
+    void removeKthElementFromLast(int k){
+
+        Node p1 = head;
+        Node p2 = head;
+        Node prev = null;
+
+        for (int i = 0; i < k - 1; i++) {
+            p2 = p2.next;
+        }
+
+        while(p2.next != null){
+            prev = p1;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+
+        //Do delete operations
+        if (p1 == head){
+            head = p1.next;
+            p1.next = null;
+        }else if (p1 == tail){
+            tail = prev;
+            prev.next = null;
+        }else{
+            prev.next = p1.next;
+            p1.next = null;
+        }
+        size--;
+    }
 
 }

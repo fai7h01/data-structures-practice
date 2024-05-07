@@ -15,9 +15,14 @@ public class Test {
         list.addFirst(30);
         list.print();
 
-        int val = 1;
+        int val = 3;
 
         System.out.println("index of " + val + ": " + list.indexOf(val));
 
+        System.out.println(list.getKthElementFromLast(6));
+
+        list.removeKthElementFromLast(3);
+
+        list.print();
     }
 }
