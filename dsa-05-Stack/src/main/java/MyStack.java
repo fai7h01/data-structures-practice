@@ -6,11 +6,11 @@ public class MyStack<T> {
     SNode<T> top;
     int size;
 
-    boolean isEmpty(){
+    boolean isEmpty() {
         return bottom == null;
     }
 
-    void push(T item){
+    void push(T item) {
         SNode<T> node = new SNode<>(item);
         if (isEmpty()) bottom = top = node;
         else {
@@ -20,21 +20,27 @@ public class MyStack<T> {
         size++;
     }
 
-    T peek(){
+    T peek() {
         return top.value;
     }
 
-    T pop(){
+    T pop() {
         SNode<T> peekNode;
         if (isEmpty()) throw new NoSuchElementException();
         //stack has one element
         if (top == bottom){
             peekNode = top;
-            top = bottom = null;
+            bottom = top = null;
         }else{ // more than one element
             peekNode = top;
-
+            SNode<T> prev = bottom;
+            while(prev.next != top){
+                prev = prev.next;
+            }
+            prev.next = null;
+            top = prev;
         }
+        size--;
+        return peekNode.value;
     }
-
 }
