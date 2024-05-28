@@ -10,6 +10,20 @@ public class MyStack<T> {
         return bottom == null;
     }
 
+    void print(){
+        if (isEmpty()) return;
+        SNode<T> current = bottom;
+        while (current != null){
+            if (current.next == null){
+                System.out.print(current.value + " => null");
+            }else{
+                System.out.print(current.value + " => ");
+            }
+            current = current.next;
+        }
+        System.out.println();
+    }
+
     void push(T item) {
         SNode<T> node = new SNode<>(item);
         if (isEmpty()) bottom = top = node;
