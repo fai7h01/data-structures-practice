@@ -74,24 +74,18 @@ public class MyLinkedList {
     }
 
     void removeKthElementFromLast(int k){
-        if (isEmpty()){
-            System.out.println("List is empty.");
-            return;
-        }
+        if (isEmpty()) return;
         Node p1 = head;
         Node p2 = head;
         Node prev = null;
-
         for (int i = 0; i < k - 1; i++) {
             p2 = p2.next;
         }
-
         while(p2.next != null){
             prev = p1;
             p1 = p1.next;
             p2 = p2.next;
         }
-
         if (p1 == head){
             head = p1.next;
             p1.next = null;
@@ -103,7 +97,6 @@ public class MyLinkedList {
             p1.next = null;
         }
         size--;
-
     }
 
 }
