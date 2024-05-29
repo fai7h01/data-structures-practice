@@ -1,6 +1,6 @@
 public class ExpBalanceCheck {
     public static void main(String[] args) {
-        System.out.println(balanceCheck("()}"));
+        System.out.println(balanceCheck("(A*C)+{V-M}]"));
     }
 
     static boolean balanceCheck(String expr){
