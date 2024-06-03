@@ -14,7 +14,7 @@ public class ReverseLL {
 
     }
 
-    static void reverse(MySinglyLinkedList list) {
+    public static void reverse(MySinglyLinkedList list) {
         //create two pointers
         Node prev = list.head;
         Node curr = prev.next;
@@ -31,6 +31,5 @@ public class ReverseLL {
         list.head = prev;
 
     }
-
 
 }
