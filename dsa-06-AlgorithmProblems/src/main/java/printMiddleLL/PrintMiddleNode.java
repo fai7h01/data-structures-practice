@@ -28,4 +28,19 @@ public class PrintMiddleNode {
         }
     }
 
+    public static Node printMiddle2(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        if (fast.next == null){
+            return slow;
+        }else{
+            return slow.next;
+        }
+    }
+
 }
