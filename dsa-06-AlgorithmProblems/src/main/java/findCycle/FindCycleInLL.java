@@ -1,4 +1,4 @@
-package mergeTwoSortedLL;
+package findCycle;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,6 @@ public class FindCycleInLL {
 
     public static boolean isCycle(Node head){
         Set<Node> set = new HashSet<>();
-
         Node current = head;
         while(current != null){
             if (set.contains(current)) return true;
@@ -29,8 +28,6 @@ public class FindCycleInLL {
             current = current.next;
         }
         return false;
-
     }
-
 
 }

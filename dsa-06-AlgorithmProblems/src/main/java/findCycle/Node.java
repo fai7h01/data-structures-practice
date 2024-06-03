@@ -1,4 +1,4 @@
-package mergeTwoSortedLL;
+package findCycle;
 
 public class Node {
     int id;
