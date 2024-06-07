@@ -4,6 +4,16 @@ import java.util.PriorityQueue;
 
 public class CollectionsQueueTasks {
     public static void main(String[] args) {
-        Deque<Integer> deque = new ArrayDeque<>();
+        MyQueue<Integer> queue = new MyQueue<>();
+
+        queue.enqueue(10);
+        queue.enqueue(20);
+        queue.enqueue(30);
+
+        queue.printQueue();
+
+        System.out.println();
+
+        System.out.println(queue.peek());
     }
 }
