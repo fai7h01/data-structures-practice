@@ -1,6 +1,3 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.PriorityQueue;
 
 public class CollectionsQueueTasks {
     public static void main(String[] args) {
@@ -10,10 +7,9 @@ public class CollectionsQueueTasks {
         queue.enqueue(20);
         queue.enqueue(30);
 
-        queue.printQueue();
-
-        System.out.println();
-
-        System.out.println(queue.peek());
+        System.out.println("Size of queue is: " + queue.size());
+        System.out.println("Front is: " + queue.peek());
+        System.out.println("First remove from queue is: " + queue.dequeue());
+        System.out.println("New front is: " + queue.peek());
     }
 }
