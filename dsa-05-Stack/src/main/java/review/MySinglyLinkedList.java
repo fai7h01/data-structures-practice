@@ -16,7 +16,7 @@ public class MySinglyLinkedList<T> {
         if(head == tail){
             head = tail = null;
         }else{
-            head.next = null;
+            head = head.next;
         }
         size--;
         return result;
