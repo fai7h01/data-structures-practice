@@ -12,12 +12,10 @@ public class MySinglyLinkedList<T> {
 
     T removeFirst(){
         if (isEmpty()) return null;
-        T result = null;
+        T result = head.value;
         if(head == tail){
-            result = head.value;
             head = tail = null;
         }else{
-            head = head.next;
             head.next = null;
         }
         size--;
