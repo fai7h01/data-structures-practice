@@ -1,18 +1,33 @@
 package review;
 
-public class MySinglyLinkedList {
+public class MySinglyLinkedList<T> {
 
-    Node head;
-    Node tail;
+    Node<T> head;
+    Node<T> tail;
     int size;
 
     boolean isEmpty() {
         return head == null;
     }
 
-    void add(int value) {
+    T removeFirst(){
+        if (isEmpty()) return null;
+        T result = null;
+        if(head == tail){
+            result = head.value;
+            head = tail = null;
+        }else{
+            head = head.next;
+            head.next = null;
+        }
+        size--;
+        return result;
+    }
+
+
+    void add(T value) {
         //create a new node object from data
-        Node node = new Node(value);
+        Node<T> node = new Node<T>(value);
         if (isEmpty()) { // if the link is empty
             head = tail = node;
         } else { // if there are elements in list
@@ -22,8 +37,8 @@ public class MySinglyLinkedList {
         size++;
     }
 
-    void addFirst(int id){
-        Node node = new Node(id);
+    void addFirst(T id){
+        Node<T> node = new Node(id);
         if (isEmpty()){
             head = tail = node;
         }else{
@@ -35,15 +50,15 @@ public class MySinglyLinkedList {
     }
 
 
-    void deleteById(int id) {
+    void deleteById(T value) {
         // check if empty
         if (isEmpty()) System.out.println("List is empty.");
 
-        Node prev = head;
-        Node current = head;
+        Node<T> prev = head;
+        Node<T> current = head;
 
         while (current != null) {
-            if (current.id == id) { // if there is a match
+            if (current.value == value) { // if there is a match
                 // case 1: head
                 if (current == head) {
                     head = current.next;
@@ -70,12 +85,12 @@ public class MySinglyLinkedList {
 
     }
 
-    int indexOf(int id){
+    int indexOf(T value){
         if (isEmpty()) return -1;
         int position = 0;
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
-            if (current.id == id) return position;
+            if (current.value == value) return position;
             position++;
             current = current.next;
         }
@@ -84,12 +99,12 @@ public class MySinglyLinkedList {
 
 
     void printNodes() {
-        Node current = head;
+        Node<T> current = head;
         while (current != null) {
             if (current.next == null)
-                System.out.println(current.id + " => null");
+                System.out.println(current.value + " => null");
             else
-                System.out.print(current.id + " => ");
+                System.out.print(current.value + " => ");
             current = current.next;
         }
     }
