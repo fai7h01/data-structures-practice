@@ -2,19 +2,19 @@ import java.util.NoSuchElementException;
 
 public class MyQueue<T> {
 
-    QNode<T> front;
-    QNode<T> back;
-    int size;
+    public QNode<T> front;
+    public QNode<T> back;
+    public int size;
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return front == null;
     }
 
-    T peek(){
+    public T peek(){
         return front.value;
     }
 
-    void enqueue(T item){
+    public void enqueue(T item){
         QNode<T> node = new QNode<>(item);
         if (isEmpty()){
             front = back = node;
@@ -25,7 +25,7 @@ public class MyQueue<T> {
         size++;
     }
 
-    T dequeue(){
+    public T dequeue(){
         QNode<T> frontNode;
         if (isEmpty()) throw new NoSuchElementException();
         if (front == back){
@@ -35,14 +35,15 @@ public class MyQueue<T> {
             frontNode = front;
             front = front.next;
         }
+        size--;
         return frontNode.value;
     }
 
-    int size(){
+    public int size(){
         return this.size;
     }
 
-    void printQueue(){
+    public void printQueue(){
         if (isEmpty()) return;
         QNode<T> current = front;
         while (current != null){
