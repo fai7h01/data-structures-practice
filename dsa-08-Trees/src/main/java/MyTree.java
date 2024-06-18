@@ -1,26 +1,29 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class MyTree {
 
     TNode root;
 
 
-    void insert(int value){
+    void insert(int value) {
         TNode node = new TNode(value);
 
-        if (root == null){
+        if (root == null) {
             root = node;
             return;
         }
 
         TNode current = root;
-        while(true){
-            if (value <= current.value){
-                if (current.leftChild == null){
+        while (true) {
+            if (value <= current.value) {
+                if (current.leftChild == null) {
                     current.leftChild = node;
                     break;
                 }
                 current = current.leftChild; // if left is not null branch left
-            }else{
-                if (current.rightChild == null){
+            } else {
+                if (current.rightChild == null) {
                     current.rightChild = node;
                     break;
                 }
@@ -30,7 +33,7 @@ public class MyTree {
     }
 
     //root - left - right
-    void preOrderTraversal(TNode root){
+    void preOrderTraversal(TNode root) {
         if (root == null) return; //termination
         System.out.print(root.value + ", ");// visit root
         preOrderTraversal(root.leftChild);// visit left subtree
@@ -38,10 +41,30 @@ public class MyTree {
     }
 
     //left - root - right
-    void inOrderTraversal(TNode root){
+    void inOrderTraversal(TNode root) {
         if (root == null) return; //termination
         inOrderTraversal(root.leftChild);
         System.out.print(root.value + ", ");
         inOrderTraversal(root.rightChild);
+    }
+
+    //left - right - root
+    void postOrderTraversal(TNode root) {
+        if (root == null) return;
+        postOrderTraversal(root.leftChild);
+        postOrderTraversal(root.rightChild);
+        System.out.print(root.value + ", ");
+    }
+
+    void levelOrderTraversal(TNode root) {
+        if (root == null) return;
+        Queue<TNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TNode toVisit = queue.poll();
+            System.out.print(toVisit.value + ", ");
+            if (toVisit.leftChild != null) queue.add(toVisit.leftChild);
+            if (toVisit.rightChild != null) queue.add(toVisit.rightChild);
+        }
     }
 }

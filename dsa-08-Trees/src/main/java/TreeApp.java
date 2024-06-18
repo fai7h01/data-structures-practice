@@ -17,5 +17,8 @@ public class TreeApp {
         System.out.println();
         System.out.println("In-order Traversal of the tree");
         tree.inOrderTraversal(tree.root);
+        System.out.println();
+        System.out.println("Post-order Traversal of the tree");
+        tree.postOrderTraversal(tree.root);
     }
 }
