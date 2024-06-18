@@ -37,4 +37,11 @@ public class MyTree {
         preOrderTraversal(root.rightChild);// visit right subtree
     }
 
+    //left - root - right
+    void inOrderTraversal(TNode root){
+        if (root == null) return; //termination
+        inOrderTraversal(root.leftChild);
+        System.out.print(root.value + ", ");
+        inOrderTraversal(root.rightChild);
+    }
 }
