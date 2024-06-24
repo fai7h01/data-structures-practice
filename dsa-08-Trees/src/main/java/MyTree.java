@@ -70,4 +70,18 @@ public class MyTree {
             if (toVisit.rightChild != null) queue.add(toVisit.rightChild);
         }
     }
+
+    TNode leftRotate(TNode node){
+        TNode temp = node.rightChild;
+        node.rightChild = temp.leftChild;
+        temp.leftChild = node;
+        return temp;
+    }
+
+    TNode rightRotate(TNode node){
+        TNode temp = node.leftChild;
+        node.leftChild = temp.rightChild;
+        temp.rightChild = node;
+        return temp;
+    }
 }
