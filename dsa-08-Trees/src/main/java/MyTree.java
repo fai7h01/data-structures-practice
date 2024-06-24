@@ -84,4 +84,14 @@ public class MyTree {
         temp.rightChild = node;
         return temp;
     }
+
+    TNode rightLeftRotation(TNode node){
+        node.rightChild = rightRotate(node.rightChild);
+        return leftRotate(node);
+    }
+
+    TNode leftRightRotation(TNode node){
+        node.leftChild = leftRotate(node.leftChild);
+        return rightRotate(node);
+    }
 }
