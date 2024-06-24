@@ -32,6 +32,8 @@ public class MyTree {
         }
     }
 
+    //Depth first
+
     //root - left - right
     void preOrderTraversal(TNode root) {
         if (root == null) return; //termination
@@ -56,6 +58,7 @@ public class MyTree {
         System.out.print(root.value + ", ");
     }
 
+    //Breadth first
     void levelOrderTraversal(TNode root) {
         if (root == null) return;
         Queue<TNode> queue = new LinkedList<>();
