@@ -39,11 +39,8 @@ public class MyHeap {
         else if (!hasRightChild(index)) {
             return leftChildIndex(index);
         } else {
-            if (items[leftChildIndex(index)] > items[rightChildIndex(index)]){
-                return leftChildIndex(index);
-            }else{
-                return rightChildIndex(index);
-            }
+            return items[leftChildIndex(index)] > items[rightChildIndex(index)] ?
+                    leftChildIndex(index) : rightChildIndex(index);
         }
     }
 }
