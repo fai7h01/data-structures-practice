@@ -10,6 +10,9 @@ public class MyHeap {
         this.size = 0;
     }
 
+
+
+
     public int leftChildIndex(int index) {
         return index * 2 + 1;
     }
@@ -43,4 +46,34 @@ public class MyHeap {
                     leftChildIndex(index) : rightChildIndex(index);
         }
     }
+
+    public void swap(int first, int second){
+        int temp = items[first];
+        items[first] = items[second];
+        items[second] = temp;
+    }
+
+    public boolean isValidParent(int index){
+        if (!hasLeftChild(index)){
+            return true;
+        }else{
+            boolean isValid = items[index] >= items[leftChildIndex(index)];
+            if (hasRightChild(index)){
+                isValid = items[index] >= items[rightChildIndex(index)];
+            }
+            return isValid;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
