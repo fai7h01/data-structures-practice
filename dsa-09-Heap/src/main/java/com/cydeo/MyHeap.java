@@ -11,7 +11,25 @@ public class MyHeap {
     }
 
 
+    public void insert(int value) {
+        if (size == items.length) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        items[size++] = value;
+        bubbleUp();
+    }
 
+    public void bubbleUp() {
+        // calculate start point/index
+        int index = size - 1;
+        // while index > 0 && parent < child -> continue
+        // 1. swap parent and child
+        // 2. calculate next index -> parent index
+        while (index > 0 && items[index] > items[parentIndex(index)]){
+            swap(index,parentIndex(index));
+            index = parentIndex(index);
+        }
+    }
 
     public int leftChildIndex(int index) {
         return index * 2 + 1;
@@ -47,33 +65,23 @@ public class MyHeap {
         }
     }
 
-    public void swap(int first, int second){
+    public void swap(int first, int second) {
         int temp = items[first];
         items[first] = items[second];
         items[second] = temp;
     }
 
-    public boolean isValidParent(int index){
-        if (!hasLeftChild(index)){
+    public boolean isValidParent(int index) {
+        if (!hasLeftChild(index)) {
             return true;
-        }else{
+        } else {
             boolean isValid = items[index] >= items[leftChildIndex(index)];
-            if (hasRightChild(index)){
+            if (hasRightChild(index)) {
                 isValid = items[index] >= items[rightChildIndex(index)];
             }
             return isValid;
         }
     }
-
-
-
-
-
-
-
-
-
-
 
 
 }
