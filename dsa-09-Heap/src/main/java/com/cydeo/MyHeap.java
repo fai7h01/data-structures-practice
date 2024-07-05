@@ -35,7 +35,7 @@ public class MyHeap {
     }
 
     public int remove() {
-        if (size == 0){
+        if (size == 0) {
             throw new NoSuchElementException();
         }
         int result = items[0];
@@ -47,7 +47,7 @@ public class MyHeap {
     public void bubbleDown() {
         int index = 0;
         int largerChildIndex;
-        while(index < size && isValidParent(index)){
+        while (index <= size && !isValidParent(index)) {
             largerChildIndex = largerChildIndex(index);
             swap(index, largerChildIndex);
             index = largerChildIndex;
@@ -83,10 +83,9 @@ public class MyHeap {
         // one child - left child
         else if (!hasRightChild(index)) {
             return leftChildIndex(index);
-        } else {
-            return items[leftChildIndex(index)] > items[rightChildIndex(index)] ?
-                    leftChildIndex(index) : rightChildIndex(index);
         }
+        return items[leftChildIndex(index)] > items[rightChildIndex(index)] ?
+                leftChildIndex(index) : rightChildIndex(index);
     }
 
     public void swap(int first, int second) {
@@ -101,15 +100,16 @@ public class MyHeap {
         } else {
             boolean isValid = items[index] >= items[leftChildIndex(index)];
             if (hasRightChild(index)) {
-                isValid = items[index] >= items[rightChildIndex(index)];
+                isValid = items[index] >= items[leftChildIndex(index)] && items[index] >= items[rightChildIndex(index)];
             }
             return isValid;
         }
     }
 
-    public void printHeap(){
-        Arrays.stream(items)
-                .forEach(each -> System.out.print(each + ", "));
+    public void printHeap() {
+        for (int i = 0; i < size; i++) {
+            System.out.print(items[i] + ", ");
+        }
         System.out.println();
     }
 
