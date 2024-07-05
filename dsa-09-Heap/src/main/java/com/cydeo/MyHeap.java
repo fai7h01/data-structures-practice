@@ -1,5 +1,8 @@
 package com.cydeo;
 
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+
 public class MyHeap {
 
     int[] items;
@@ -25,10 +28,31 @@ public class MyHeap {
         // while index > 0 && parent < child -> continue
         // 1. swap parent and child
         // 2. calculate next index -> parent index
-        while (index > 0 && items[index] > items[parentIndex(index)]){
-            swap(index,parentIndex(index));
+        while (index > 0 && items[index] > items[parentIndex(index)]) {
+            swap(index, parentIndex(index));
             index = parentIndex(index);
         }
+    }
+
+    public int remove() {
+        if (size == 0){
+            throw new NoSuchElementException();
+        }
+        int result = items[0];
+        items[0] = items[--size];
+        bubbleDown();
+        return result;
+    }
+
+    public void bubbleDown() {
+        int index = 0;
+        int largerChildIndex;
+        while(index < size && isValidParent(index)){
+            largerChildIndex = largerChildIndex(index);
+            swap(index, largerChildIndex);
+            index = largerChildIndex;
+        }
+
     }
 
     public int leftChildIndex(int index) {
@@ -83,5 +107,10 @@ public class MyHeap {
         }
     }
 
+    public void printHeap(){
+        Arrays.stream(items)
+                .forEach(each -> System.out.print(each + ", "));
+        System.out.println();
+    }
 
 }
