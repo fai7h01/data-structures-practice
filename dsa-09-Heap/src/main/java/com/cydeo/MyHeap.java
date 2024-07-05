@@ -13,6 +13,10 @@ public class MyHeap {
         this.size = 0;
     }
 
+    public int peek(){
+        if (size == 0) throw new NoSuchElementException();
+        return items[0];
+    }
 
     public void insert(int value) {
         if (size == items.length) {
